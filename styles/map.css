@@ -48,6 +48,10 @@
   background: var(--color-insufficient);
 }
 
+.marker--gas-station {
+  background: var(--color-gas-station);
+}
+
 .marker__icon {
   line-height: 1;
 }

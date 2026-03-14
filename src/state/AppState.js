@@ -94,10 +94,11 @@ class AppState {
     const noStand = all.filter(l => l.standStatus === 'no-stand').length;
     const noCantire = all.filter(l => l.standStatus === 'no-cantire').length;
     const insufficientView = all.filter(l => l.standStatus === 'insufficient-view').length;
+    const gasStation = all.filter(l => l.standStatus === 'gas-station').length;
     const unvisited = all.filter(l => !l.standStatus).length;
     const inspected = total - unvisited;
     const pct = total > 0 ? Math.round((inspected / total) * 100) : 0;
-    return { total, standFound, noStand, noCantire, insufficientView, unvisited, inspected, pct };
+    return { total, standFound, noStand, noCantire, insufficientView, gasStation, unvisited, inspected, pct };
   }
 
   _deepMerge(target, source) {

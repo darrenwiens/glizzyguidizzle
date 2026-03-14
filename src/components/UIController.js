@@ -146,7 +146,7 @@ export class UIController {
         standBbox: bbox,
         standView: standView,
       });
-      const statusLabels = { 'stand-found': 'Stand found!', 'no-stand': 'No stand.', 'no-cantire': 'No Canadian Tire.', 'insufficient-view': 'Insufficient view.' };
+      const statusLabels = { 'stand-found': 'Stand found!', 'no-stand': 'No stand.', 'no-cantire': 'No Canadian Tire.', 'insufficient-view': 'Insufficient view.', 'gas-station': 'Gas station.' };
       showToast(statusLabels[this._pendingStatus] || 'Saved.', 'success');
       this._pendingStatus = null;
       $$('[data-status]').forEach(b => b.classList.remove('is-active'));
@@ -222,6 +222,9 @@ export class UIController {
           break;
         case '4':
           if (inInspection) { e.preventDefault(); $('[data-status="insufficient-view"]')?.click(); }
+          break;
+        case '5':
+          if (inInspection) { e.preventDefault(); $('[data-status="gas-station"]')?.click(); }
           break;
 
         case 'd':

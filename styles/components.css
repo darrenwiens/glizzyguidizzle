@@ -127,6 +127,11 @@
   color: var(--color-insufficient-text);
 }
 
+.badge--gas-station {
+  background: var(--color-gas-station-bg);
+  color: var(--color-gas-station-text);
+}
+
 /* Header */
 .header {
   display: flex;
@@ -368,6 +373,7 @@
 .legend__dot--no-stand { background: var(--color-not-found); }
 .legend__dot--no-cantire { background: var(--color-no-cantire); }
 .legend__dot--insufficient-view { background: var(--color-insufficient); }
+.legend__dot--gas-station { background: var(--color-gas-station); }
 
 /* Loading */
 .loading-overlay {

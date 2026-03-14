@@ -170,6 +170,7 @@ class GoogleMapsAPI {
       'no-stand': '<span class="badge badge--no-stand">✕ No Stand</span>',
       'no-cantire': '<span class="badge badge--no-cantire">⊘ No Canadian Tire</span>',
       'insufficient-view': '<span class="badge badge--insufficient-view">? Insufficient View</span>',
+      'gas-station': '<span class="badge badge--gas-station">⛽ Gas Station</span>',
     }[status];
 
     this.infoWindow.setContent(`

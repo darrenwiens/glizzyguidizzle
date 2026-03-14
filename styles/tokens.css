@@ -6,16 +6,19 @@
   --color-not-found: #ef4444;
   --color-no-cantire: #f59e0b;
   --color-insufficient: #8b5cf6;
+  --color-gas-station: #3b82f6;
   --color-unvisited-bg: #f3f4f6;
   --color-found-bg: #ecfdf5;
   --color-not-found-bg: #fef2f2;
   --color-no-cantire-bg: #fffbeb;
   --color-insufficient-bg: #f5f3ff;
+  --color-gas-station-bg: #eff6ff;
   --color-unvisited-text: #4b5563;
   --color-found-text: #047857;
   --color-not-found-text: #dc2626;
   --color-no-cantire-text: #b45309;
   --color-insufficient-text: #6d28d9;
+  --color-gas-station-text: #1d4ed8;
 
   /* UI Colors */
   --color-primary: #1e40af;

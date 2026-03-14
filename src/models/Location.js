@@ -18,17 +18,17 @@ export class Location {
   }
 
   getMarkerColor() {
-    const colors = { 'stand-found': '#10b981', 'no-stand': '#ef4444', 'no-cantire': '#f59e0b', 'insufficient-view': '#8b5cf6', unvisited: '#9ca3af' };
+    const colors = { 'stand-found': '#10b981', 'no-stand': '#ef4444', 'no-cantire': '#f59e0b', 'insufficient-view': '#8b5cf6', 'gas-station': '#3b82f6', unvisited: '#9ca3af' };
     return colors[this.getStatus()] || '#9ca3af';
   }
 
   getStatusLabel() {
-    const labels = { 'stand-found': 'Stand Found', 'no-stand': 'No Stand', 'no-cantire': 'No Canadian Tire', 'insufficient-view': 'Insufficient View', unvisited: 'Not Yet Inspected' };
+    const labels = { 'stand-found': 'Stand Found', 'no-stand': 'No Stand', 'no-cantire': 'No Canadian Tire', 'insufficient-view': 'Insufficient View', 'gas-station': 'Gas Station', unvisited: 'Not Yet Inspected' };
     return labels[this.getStatus()] || 'Unknown';
   }
 
   getMarkerIcon() {
-    const icons = { 'stand-found': '✓', 'no-stand': '✕', 'no-cantire': '⊘', 'insufficient-view': '?', unvisited: '•' };
+    const icons = { 'stand-found': '✓', 'no-stand': '✕', 'no-cantire': '⊘', 'insufficient-view': '?', 'gas-station': '⛽', unvisited: '•' };
     return icons[this.getStatus()] || '•';
   }
 
