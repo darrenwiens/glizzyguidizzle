@@ -31,11 +31,11 @@ export class HeaderController {
     if (stats.total === 0) return;
 
     const foundPct = (stats.standFound / stats.total) * 100;
-    const noStandPct = (stats.noStand / stats.total) * 100;
+    const otherInspectedPct = ((stats.noStand + stats.noCantire + stats.insufficientView) / stats.total) * 100;
 
     if (foundBar) foundBar.style.width = `${foundPct}%`;
-    if (notFoundBar) notFoundBar.style.width = `${noStandPct}%`;
-    if (statsText) statsText.textContent = `${formatCount(stats.inspected)} / ${formatCount(stats.total)} (${formatPct(stats.inspected, stats.total)})`;
+    if (notFoundBar) notFoundBar.style.width = `${otherInspectedPct}%`;
+    if (statsText) statsText.textContent = `\u{1F32D} ${stats.standFound} found \u00B7 ${stats.inspected} / ${stats.total} inspected`;
     if (progressBar) {
       progressBar.setAttribute('aria-valuenow', stats.pct);
       progressBar.setAttribute('aria-valuetext', `${stats.pct}% inspected`);

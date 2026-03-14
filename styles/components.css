@@ -210,7 +210,7 @@
 }
 
 .header__progress-not-found {
-  background: var(--color-not-found);
+  background: var(--color-unvisited);
   height: 100%;
   transition: width 0.3s ease;
 }
