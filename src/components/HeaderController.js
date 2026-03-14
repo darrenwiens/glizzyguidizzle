@@ -13,7 +13,6 @@ export class HeaderController {
   init() {
     this._searchInput = $('#search-input');
     this._bindSearch();
-    this._bindHelp();
 
     // Update stats on state changes
     eventBus.on('state-changed', () => this.updateStats());
@@ -53,15 +52,6 @@ export class HeaderController {
         eventBus.emit('search-changed', { term });
       }, 250);
     });
-  }
-
-  _bindHelp() {
-    const helpBtn = $('#help-btn');
-    if (helpBtn) {
-      helpBtn.addEventListener('click', () => {
-        eventBus.emit('show-help');
-      });
-    }
   }
 }
 

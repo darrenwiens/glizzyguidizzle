@@ -262,11 +262,6 @@ export class UIController {
             this._saveAndNext();
           }
           break;
-
-        case '?':
-          e.preventDefault();
-          eventBus.emit('show-help');
-          break;
       }
     });
   }
