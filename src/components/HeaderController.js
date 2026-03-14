@@ -1,0 +1,68 @@
+import { appState } from '../state/AppState.js';
+import { eventBus } from '../state/EventBus.js';
+import { $, show, hide, announce } from '../utils/domUtils.js';
+import { formatPct, formatCount } from '../utils/formatters.js';
+
+/** Controls the header: search, stats, help */
+export class HeaderController {
+  constructor() {
+    this._searchInput = null;
+    this._debounceTimer = null;
+  }
+
+  init() {
+    this._searchInput = $('#search-input');
+    this._bindSearch();
+    this._bindHelp();
+
+    // Update stats on state changes
+    eventBus.on('state-changed', () => this.updateStats());
+    eventBus.on('inspection-saved', () => this.updateStats());
+  }
+
+  /** Update the progress bar and stats text */
+  updateStats() {
+    const stats = appState.getStats();
+    const progressBar = $('.header__progress-bar');
+    const foundBar = $('#progress-found');
+    const notFoundBar = $('#progress-not-found');
+    const statsText = $('#stats-text');
+
+    if (stats.total === 0) return;
+
+    const foundPct = (stats.standFound / stats.total) * 100;
+    const noStandPct = (stats.noStand / stats.total) * 100;
+
+    if (foundBar) foundBar.style.width = `${foundPct}%`;
+    if (notFoundBar) notFoundBar.style.width = `${noStandPct}%`;
+    if (statsText) statsText.textContent = `${formatCount(stats.inspected)} / ${formatCount(stats.total)} (${formatPct(stats.inspected, stats.total)})`;
+    if (progressBar) {
+      progressBar.setAttribute('aria-valuenow', stats.pct);
+      progressBar.setAttribute('aria-valuetext', `${stats.pct}% inspected`);
+    }
+  }
+
+  _bindSearch() {
+    if (!this._searchInput) return;
+
+    this._searchInput.addEventListener('input', () => {
+      clearTimeout(this._debounceTimer);
+      this._debounceTimer = setTimeout(() => {
+        const term = this._searchInput.value.trim();
+        appState.setState({ filters: { ...appState.state.filters, searchTerm: term } });
+        eventBus.emit('search-changed', { term });
+      }, 250);
+    });
+  }
+
+  _bindHelp() {
+    const helpBtn = $('#help-btn');
+    if (helpBtn) {
+      helpBtn.addEventListener('click', () => {
+        eventBus.emit('show-help');
+      });
+    }
+  }
+}
+
+export const headerController = new HeaderController();

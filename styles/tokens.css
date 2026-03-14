@@ -1,0 +1,68 @@
+/* Design Tokens */
+:root {
+  /* Status Colors */
+  --color-unvisited: #9ca3af;
+  --color-found: #10b981;
+  --color-not-found: #ef4444;
+  --color-no-cantire: #f59e0b;
+  --color-insufficient: #8b5cf6;
+  --color-unvisited-bg: #f3f4f6;
+  --color-found-bg: #ecfdf5;
+  --color-not-found-bg: #fef2f2;
+  --color-no-cantire-bg: #fffbeb;
+  --color-insufficient-bg: #f5f3ff;
+  --color-unvisited-text: #4b5563;
+  --color-found-text: #047857;
+  --color-not-found-text: #dc2626;
+  --color-no-cantire-text: #b45309;
+  --color-insufficient-text: #6d28d9;
+
+  /* UI Colors */
+  --color-primary: #1e40af;
+  --color-primary-light: #3b82f6;
+  --color-primary-hover: #1d4ed8;
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f9fafb;
+  --color-text: #111827;
+  --color-text-secondary: #6b7280;
+  --color-border: #e5e7eb;
+  --color-success: #10b981;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+  --color-overlay: rgba(0, 0, 0, 0.5);
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-marker: 0 2px 8px rgba(0, 0, 0, 0.25);
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+
+  /* Layout */
+  --header-height: 56px;
+  --sidebar-width: 320px;
+  --toolbar-height: 56px;
+}

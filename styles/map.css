@@ -1,0 +1,53 @@
+/* Map-specific styles */
+
+/* Custom markers for AdvancedMarkerElement */
+.marker {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2.5px solid white;
+  box-shadow: var(--shadow-marker);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+}
+
+.marker:hover,
+.marker:focus-visible {
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.marker:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
+
+.marker--unvisited {
+  background: var(--color-unvisited);
+}
+
+.marker--stand-found {
+  background: var(--color-found);
+}
+
+.marker--no-stand {
+  background: var(--color-not-found);
+}
+
+.marker--no-cantire {
+  background: var(--color-no-cantire);
+}
+
+.marker--insufficient-view {
+  background: var(--color-insufficient);
+}
+
+.marker__icon {
+  line-height: 1;
+}

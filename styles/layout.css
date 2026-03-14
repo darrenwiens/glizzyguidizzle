@@ -1,0 +1,120 @@
+/* Layout */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.app__header {
+  flex-shrink: 0;
+  height: var(--header-height);
+}
+
+.app__body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Map view */
+.map-view {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.map-view__map {
+  flex: 1;
+  position: relative;
+}
+
+#map-container {
+  width: 100%;
+  height: 100%;
+}
+
+.map-view__sidebar {
+  width: var(--sidebar-width);
+  background: var(--color-bg);
+  border-left: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Inspection view */
+.inspection-view {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  z-index: 20;
+}
+
+.inspection-view__header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+  height: var(--toolbar-height);
+  flex-shrink: 0;
+}
+
+.inspection-view__streetview {
+  flex: 1;
+  position: relative;
+  min-height: 0;
+}
+
+#streetview-container {
+  width: 100%;
+  height: 100%;
+}
+
+.inspection-view__toolbar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg);
+  flex-wrap: wrap;
+}
+
+/* Utility */
+.is-hidden {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

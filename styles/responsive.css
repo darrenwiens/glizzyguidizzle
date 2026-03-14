@@ -1,0 +1,74 @@
+/* Responsive breakpoints */
+
+/* Tablet and below */
+@media (max-width: 1024px) {
+  .map-view__sidebar {
+    width: 260px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .header__search {
+    display: none;
+  }
+
+  .header__stats-text {
+    display: none;
+  }
+
+  .map-view {
+    flex-direction: column;
+  }
+
+  .map-view__sidebar {
+    width: 100%;
+    max-height: 200px;
+    border-left: none;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .sidebar__header {
+    padding: var(--spacing-sm);
+  }
+
+  .sidebar__filters {
+    flex-wrap: wrap;
+  }
+
+  .inspection-view__toolbar {
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-xs);
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .legend {
+    gap: var(--spacing-sm);
+    font-size: 10px;
+  }
+
+  .toolbar__divider {
+    display: none;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  :root {
+    --header-height: 48px;
+  }
+
+  .header__logo-text {
+    display: none;
+  }
+
+  .map-view__sidebar {
+    max-height: 160px;
+  }
+}
