@@ -35,7 +35,8 @@ export class StreetViewController {
     this._panorama = googleMapsAPI.initStreetView(
       container,
       location.latitude,
-      location.longitude
+      location.longitude,
+      location.standView ? this._parseViewUrl(location.standView) : {},
     );
 
     announce(`Street View loaded for ${location.name}.`);
@@ -57,6 +58,26 @@ export class StreetViewController {
     googleMapsAPI.destroyStreetView();
     this._panorama = null;
     this._hasStreetView = false;
+  }
+
+  /** Parse a saved stand_view URL into pano/heading/pitch/zoom */
+  _parseViewUrl(url) {
+    try {
+      const u = new URL(url);
+      const params = u.searchParams;
+      const opts = {};
+      if (params.has('pano')) opts.pano = params.get('pano');
+      if (params.has('heading')) opts.heading = parseFloat(params.get('heading'));
+      if (params.has('pitch')) opts.pitch = parseFloat(params.get('pitch'));
+      if (params.has('fov')) {
+        const fov = parseFloat(params.get('fov'));
+        // FOV to zoom: zoom = log2(180 / fov)
+        if (fov > 0) opts.zoom = Math.log2(180 / fov);
+      }
+      return opts;
+    } catch {
+      return {};
+    }
   }
 }
 

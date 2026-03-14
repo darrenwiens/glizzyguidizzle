@@ -87,20 +87,26 @@ class GoogleMapsAPI {
   }
 
   /** Initialize Street View into a container */
-  initStreetView(containerEl, lat, lng) {
+  initStreetView(containerEl, lat, lng, opts = {}) {
     this._streetViewContainer = containerEl;
 
-    this.streetView = new google.maps.StreetViewPanorama(containerEl, {
+    const config = {
       position: { lat, lng },
-      pov: { heading: 0, pitch: 0 },
-      zoom: 1,
+      pov: { heading: opts.heading ?? 0, pitch: opts.pitch ?? 0 },
+      zoom: opts.zoom ?? 1,
       motionTracking: false,
       addressControl: false,
       linksControl: true,
       panControl: true,
       zoomControl: true,
       fullscreenControl: false,
-    });
+    };
+
+    if (opts.pano) {
+      config.pano = opts.pano;
+    }
+
+    this.streetView = new google.maps.StreetViewPanorama(containerEl, config);
 
     return this.streetView;
   }
